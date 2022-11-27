@@ -50,6 +50,16 @@ jobs:
           command: |
             echo "TODO: Build the backend API"
             npm run api:build
+  deploy:
+    docker:
+      - image: "cimg/base:stable"
+      # more setup needed for aws, node, elastic beanstalk
+    steps:
+      - node/install:
+          node-version: '14.15' 
+      - eb/setup
+      - aws-cli/setup
+      - checkout
       - run:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
@@ -57,3 +67,17 @@ jobs:
             echo "# TODO: Install, build, deploy in both apps"
             npm run frontend:deploy
             npm run api:deploy
+workflows:
+  udagram:
+    jobs:
+      - build
+      - hold:
+          filters:
+            branches:
+              only:
+                - main
+          requires:
+            - build
+      - deploy:
+          requires:
+            - hold
