@@ -64,6 +64,10 @@ The e2e tests are using Protractor and Jasmine.
 #### The app is accessible via this link
 [http://udacity-bucket-989282.s3-website-us-east-1.amazonaws.com/](http://udacity-bucket-989282.s3-website-us-east-1.amazonaws.com/)
 
+#### CI/CD using circleCI
+
+![status](/screenshots/circleci-1.png)
+
 ## Built With
 
 - [Angular](https://angular.io/) - Single Page Application Framework
