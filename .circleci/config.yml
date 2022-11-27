@@ -53,7 +53,7 @@ jobs:
       - run:
           name: Set enviroment variables
           command: |
-           echo ${POSTGRES_PASSWORD}
+           npm run api:setenv
       - run:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
